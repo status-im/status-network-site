@@ -24,42 +24,42 @@ var config = {
         },
         dist: {
             css: './public/css',
-            js: './public/js'
+            // js: './public/js'
         }
     }
 }
 
-// Watchify args contains necessary cache options to achieve fast incremental bundles.
-// See watchify readme for details. Adding debug true for source-map generation.
-watchify.args.debug = true
-// Input file.
-var bundler = watchify(browserify(config.paths.src.js, watchify.args))
+// // Watchify args contains necessary cache options to achieve fast incremental bundles.
+// // See watchify readme for details. Adding debug true for source-map generation.
+// watchify.args.debug = true
+// // Input file.
+// var bundler = watchify(browserify(config.paths.src.js, watchify.args))
 
-// Babel transform
-bundler.transform(
-    babelify.configure({
-        sourceMapRelative: './themes/navy/source/js/'
-    })
-)
+// // Babel transform
+// bundler.transform(
+//     babelify.configure({
+//         sourceMapRelative: './themes/navy/source/js/'
+//     })
+// )
 
-const bundle = () => {
-    log('Compiling JS...')
+// const bundle = () => {
+//     log('Compiling JS...')
 
-    return bundler
-        .bundle()
-        .on('error', (err) => {
-            log(err.message)
-            browserSync.notify('Browserify Error!')
-            this.emit('end')
-        })
-        .pipe(exorcist('./themes/navy/source/js/main.js.map'))
-        .pipe(source('main.js'))
-        .pipe(gulp.dest('./themes/navy/source/js'))
-        .pipe(browserSync.stream({ once: true }))
-}
+//     return bundler
+//         .bundle()
+//         .on('error', (err) => {
+//             log(err.message)
+//             browserSync.notify('Browserify Error!')
+//             this.emit('end')
+//         })
+//         .pipe(exorcist('./themes/navy/source/js/main.js.map'))
+//         .pipe(source('main.js'))
+//         .pipe(gulp.dest('./themes/navy/source/js'))
+//         .pipe(browserSync.stream({ once: true }))
+// }
 
-// On updates recompile
-bundler.on('update', bundle)
+// // On updates recompile
+// bundler.on('update', bundle)
 
 // helper functions
 

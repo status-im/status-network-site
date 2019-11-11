@@ -3,285 +3,249 @@
 @font-face {
     font-family: 'Inter';
     font-style:  normal;
-    font-weight: 100;
-    font-display: swap;
-    src: url("../fonts/Inter-Thin-BETA.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-Thin-BETA.woff?v=3.11") format("woff");
-  }
-  @font-face {
-    font-family: 'Inter';
-    font-style:  italic;
-    font-weight: 100;
-    font-display: swap;
-    src: url("../fonts/Inter-ThinItalic-BETA.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-ThinItalic-BETA.woff?v=3.11") format("woff");
-  }
-  
-  @font-face {
-    font-family: 'Inter';
-    font-style:  normal;
-    font-weight: 200;
-    font-display: swap;
-    src: url("../fonts/Inter-ExtraLight-BETA.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-ExtraLight-BETA.woff?v=3.11") format("woff");
-  }
-  @font-face {
-    font-family: 'Inter';
-    font-style:  italic;
-    font-weight: 200;
-    font-display: swap;
-    src: url("../fonts/Inter-ExtraLightItalic-BETA.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-ExtraLightItalic-BETA.woff?v=3.11") format("woff");
-  }
-  
-  @font-face {
-    font-family: 'Inter';
-    font-style:  normal;
-    font-weight: 300;
-    font-display: swap;
-    src: url("../fonts/Inter-Light-BETA.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-Light-BETA.woff?v=3.11") format("woff");
-  }
-  @font-face {
-    font-family: 'Inter';
-    font-style:  italic;
-    font-weight: 300;
-    font-display: swap;
-    src: url("../fonts/Inter-LightItalic-BETA.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-LightItalic-BETA.woff?v=3.11") format("woff");
-  }
-  
-  @font-face {
-    font-family: 'Inter';
-    font-style:  normal;
     font-weight: 400;
     font-display: swap;
     src: url("../fonts/Inter-Regular.woff2?v=3.11") format("woff2"),
          url("../fonts/Inter-Regular.woff?v=3.11") format("woff");
-  }
-  @font-face {
+}
+@font-face {
     font-family: 'Inter';
     font-style:  italic;
     font-weight: 400;
     font-display: swap;
     src: url("../fonts/Inter-Italic.woff2?v=3.11") format("woff2"),
          url("../fonts/Inter-Italic.woff?v=3.11") format("woff");
-  }
+}
   
-  @font-face {
-    font-family: 'Inter';
-    font-style:  normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url("../fonts/Inter-Medium.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-Medium.woff?v=3.11") format("woff");
-  }
-  @font-face {
-    font-family: 'Inter';
-    font-style:  italic;
-    font-weight: 500;
-    font-display: swap;
-    src: url("../fonts/Inter-MediumItalic.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-MediumItalic.woff?v=3.11") format("woff");
-  }
   
-  @font-face {
+@font-face {
     font-family: 'Inter';
     font-style:  normal;
     font-weight: 600;
     font-display: swap;
     src: url("../fonts/Inter-SemiBold.woff2?v=3.11") format("woff2"),
          url("../fonts/Inter-SemiBold.woff?v=3.11") format("woff");
-  }
-  @font-face {
+}
+@font-face {
     font-family: 'Inter';
     font-style:  italic;
     font-weight: 600;
     font-display: swap;
     src: url("../fonts/Inter-SemiBoldItalic.woff2?v=3.11") format("woff2"),
          url("../fonts/Inter-SemiBoldItalic.woff?v=3.11") format("woff");
-  }
+}
   
-  @font-face {
+@font-face {
     font-family: 'Inter';
     font-style:  normal;
     font-weight: 700;
     font-display: swap;
     src: url("../fonts/Inter-Bold.woff2?v=3.11") format("woff2"),
          url("../fonts/Inter-Bold.woff?v=3.11") format("woff");
-  }
-  @font-face {
+}
+
+@font-face {
     font-family: 'Inter';
     font-style:  italic;
     font-weight: 700;
     font-display: swap;
     src: url("../fonts/Inter-BoldItalic.woff2?v=3.11") format("woff2"),
          url("../fonts/Inter-BoldItalic.woff?v=3.11") format("woff");
-  }
-  
-  @font-face {
-    font-family: 'Inter';
-    font-style:  normal;
-    font-weight: 800;
-    font-display: swap;
-    src: url("../fonts/Inter-ExtraBold.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-ExtraBold.woff?v=3.11") format("woff");
-  }
-  @font-face {
-    font-family: 'Inter';
-    font-style:  italic;
-    font-weight: 800;
-    font-display: swap;
-    src: url("../fonts/Inter-ExtraBoldItalic.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-ExtraBoldItalic.woff?v=3.11") format("woff");
-  }
-  
-  @font-face {
-    font-family: 'Inter';
-    font-style:  normal;
-    font-weight: 900;
-    font-display: swap;
-    src: url("../fonts/Inter-Black.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-Black.woff?v=3.11") format("woff");
-  }
-  @font-face {
-    font-family: 'Inter';
-    font-style:  italic;
-    font-weight: 900;
-    font-display: swap;
-    src: url("../fonts/Inter-BlackItalic.woff2?v=3.11") format("woff2"),
-         url("../fonts/Inter-BlackItalic.woff?v=3.11") format("woff");
-  }
-  
-  /* -------------------------------------------------------
-  Variable font.
-  Usage:
-  
-    html { font-family: 'Inter', sans-serif; }
-    @supports (font-variation-settings: normal) {
-      html { font-family: 'Inter var', sans-serif; }
-    }
-  */
-  @font-face {
+}
+
+@font-face {
     font-family: 'Inter var';
     font-weight: 100 900;
     font-display: swap;
     font-style: normal;
     font-named-instance: 'Regular';
     src: url("../fonts/Inter-roman.var.woff2?v=3.11") format("woff2");
-  }
-  @font-face {
+}
+@font-face {
     font-family: 'Inter var';
     font-weight: 100 900;
     font-display: swap;
     font-style: italic;
     font-named-instance: 'Italic';
     src: url("../fonts/Inter-italic.var.woff2?v=3.11") format("woff2");
-  }
-  
-  
-  /* --------------------------------------------------------------------------
-  [EXPERIMENTAL] Multi-axis, single variable font.
-  
-  Slant axis is not yet widely supported (as of February 2019) and thus this
-  multi-axis single variable font is opt-in rather than the default.
-  
-  When using this, you will probably need to set font-variation-settings
-  explicitly, e.g.
-  
-    * { font-variation-settings: "slnt" 0deg }
-    .italic { font-variation-settings: "slnt" 10deg }
-  
-  */
-  @font-face {
-    font-family: 'Inter var experimental';
-    font-weight: 100 900;
-    font-display: swap;
-    font-style: oblique 0deg 10deg;
-    src: url("../fonts/Inter.var.woff2?v=3.11") format("woff2");
-  }
-  
-  body{
-    font-family: 'Inter';
-  }
+}
 
-  a:hover{
-      text-decoration: none;
-  }
+html{
+    font-size: 16px;
+}
+  
+body{
+    font-family: 'Inter', sans-serif;
+    color: #000000;
+}
 
-  ul{
+a:hover{
+    text-decoration: none;
+}
+
+h1{
+    letter-spacing: -2.5px;
+}
+
+h2{
+    font-size: 3.625rem;
+    font-weight: bold;
+    line-height: 58px;
+    letter-spacing: -1.85897px;
+}
+
+h3{
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 48px;
+    letter-spacing: -1.21795px;
+}
+
+h4{
+    font-size: 2.375rem;
+    line-height: 38px;
+    font-weight: bold;
+    letter-spacing: -1.21795px;
+}
+
+ul{
     list-style-type: none;
     padding: 0;
     margin-bottom: 0;
-  }
+}
 
-  .link-arrow{
+.link-arrow{
     font-size: 1.25rem;
     font-weight: 600;
     color: $purple;
-    img{
+    letter-spacing: -0.2px;
+    display: inline-flex;
+    align-items: center;
+    svg{
         margin-right: 15px;
     }
-  }
+}
 
-  .teaser-1{
+.inline-links{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    li{
+        margin-right: 50px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    li:last-child{
+        margin-right: 0;
+    }
+}
+
+.teaser-1{
     font-size: 2.375rem;
     font-weight: 400;
-    line-height: 48px;
+    line-height: 3rem;
     color: $light-grey;
-  }
+}
 
-  .teaser-2{
+.teaser-2{
     font-size: 1.75rem;
     font-weight: 400;
     line-height: 38px;
-    color: $lighter-grey;
-  }
+    color: $light-grey;
+    letter-spacing: -0.965517px;
+}
 
-  .m-t{
+.inline{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.m-t-30{
     margin-top: 30px;
-  }
+}
 
-  .dark{
-      background-color: $darker-grey;
-  }
+.m-b-30{
+    margin-bottom: 30px;
+}
+
+.mb-50{
+    margin-bottom: 50px;
+}
+
+.pt-150{
+    padding-top: 150px;
+}
+
+.pb-150{
+    padding-bottom: 150px;
+}
+
+.pt-200{
+    padding-top: 200px;
+}
+
+.pb-200{
+    padding-bottom: 200px;
+}
+
+.mt-200{
+    margin-top: 200px;
+}
+
+.mb-200{
+    margin-bottom: 200px;
+}
+
+.mt-150{
+    margin-top: 150px;
+}
+
+.mb-150{
+    margin-bottom: 150px;
+}
+
+.dark{
+    background-color: $darker-grey;
+}
   
-  header{
+header{
     padding: 30px 45px;
-      .nav-section{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    .nav-section{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-  }
+}
 
-  .intro{
-    padding: 200px 0 80px 0;
+.intro{
+    padding-bottom: 80px;
     h1{
         font-size: 4.875rem;
         font-weight: bold;
-        line-height: 78px;
-        margin-bottom: 60px;
+        line-height: 4.875rem;
         color: $black;
     }
-    .teaser-1{
-    margin-bottom: 190px;
-    }
-  }
+}
 
   .quick-nav{
     background-color: $dark-grey;
+    height: 60px;
+    display: flex;
+    align-items: center;
     ul{
         display: flex;
         justify-content: center;
         li{
+            margin: 0 30px;
             a{  
                 font-size: 1.25rem;
                 font-weight: 600;
                 color: $white;
-                padding: 20px 30px;
                 display: flex;
-                img{
+                align-items: center;
+                svg{
                     margin-right: 15px;
                 }
             }
@@ -289,49 +253,224 @@
     }
   }
 
-  .ecosystem{
-      padding: 190px 0;
-      .inner-start{
-          h2{
-              font-size: 3.625rem;
-              font-weight: bold;
-              line-height: 58px;
-              color: $white;
-              margin-bottom: 50px;
-          }
-      }
-      .products{
+.ecosystem{
+    .inner-start{
+        h2{
+            color: $white;
+        }
+        p{
+            color: $lighter-grey;
+        }
+    }
+    .products{
         .grey-subtitle{
-            font-size: 2.375rem;
-            line-height: 38px;
-            font-weight: bold;
-            margin-top: 160px;
             color: $lighter-grey;
             margin-bottom: 80px;
-            img{
+            display: flex;
+            align-items: center;
+            svg{
                 margin-right: 20px;
             }
         }
         .inner-img{
-            img{
-                width: 100%;
-                height: auto;
+            a{
+                display: block;
+                img{
+                    width: 100%;
+                    height: auto;
+                }
             }
         }
-      }
-      .inner-end{
-          margin-top: 180px;
-          h3{
-              font-size: 3rem;
-              font-weight: bold;
-              line-height: 48px;
-              margin-bottom: 60px;
-              color: $white;
-          }
-          .inner-link{
-              a{
-                  font-size: 2.25rem;
-              }
-          }
-      }
-  }
+    }
+    .inner-end{
+        margin-top: 180px;
+        h3{
+            color: $white;
+        }
+        a{
+            font-size: 2.25rem;
+            color: #6C87FF;
+        }
+    }
+}
+
+.mission{
+    background-color: $slight-grey;
+    .inner{
+        h3{
+            color: $black;
+        }
+    }
+}
+
+.news{
+    h2{
+        color: $black;
+        margin-bottom: 90px;
+    }
+    .inline{
+        .link-arrow{
+            font-size: 1.875rem;
+        }
+    }
+}
+
+.post{
+    padding-bottom: 30px;
+    border-bottom: 2px solid #E1E1E1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .meta{
+        font-size: 1.125rem;
+        color: $light-grey;
+        a{
+            color: $light-grey;
+        }
+    }
+    h4{
+        margin: 20px 0;
+        a{
+            color: $black;
+        }
+    }
+    .author{
+        color: $light-grey;
+        font-size: 1.125rem;
+    }
+    .link-arrow{
+        margin-top: auto;
+    }
+}
+
+footer{
+    padding: 140px 0 80px 0;
+    background-color: $light-black;
+    color: $lighter-grey;
+    svg{
+        margin-top: 4px;
+    }
+    .inner{
+        flex: 1;
+        margin-left: 20px;
+        a{
+            color: $white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        p{
+            font-size: 1.125rem;
+            line-height: 1.375rem;
+        }
+    }
+    .footer-bottom{
+        ul{
+            padding: 0;
+            display: flex;
+            margin-bottom: 20px;
+            li{
+                margin-right: 50px;
+                a{
+                    font-size: 1rem;
+                    color: $lighter-grey;
+                    font-weight: 500;
+                }
+            }
+            li:last-child{
+                margin-right: 0;
+            }
+        }
+        p{
+            font-size: 0.875rem;
+            color: rgba($white, 0.3);
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+  /*===== ABOUT =====*/
+
+.about-intro{
+    .teaser-2{
+        margin-bottom: 40px;
+    }
+    .teaser-2:last-child{
+        margin-bottom: 0;
+    }
+    .inline-links{
+        margin-top: 120px;
+        li{
+            a{
+                font-size: 1.125rem;
+            }
+        }
+    }
+}
+
+.what-we-build{
+    background-color: $slight-grey;
+    padding: 250px 0 220px 0;
+    .inner{
+        h2{
+            color: $black;
+        }
+    }
+    ul{
+        margin-top: 164px;
+        li{
+            margin-bottom: 70px;
+            h4{
+                color: $black;
+            }
+            p{
+                font-size: 1.375rem;
+                color: $light-grey;
+                margin-bottom: 0;
+            }
+        }
+        li:last-child{
+            margin-bottom: 0;
+        }
+    }
+    .inner-img{
+        margin-top: 164px;
+    }
+}
+
+.why-we-build{
+    padding: 200px 0;
+    h2{
+        color: $black;
+    }
+}
+
+.sovereign-society{
+    padding: 200px 0;
+    background-color: $slight-grey;
+    .inner{
+        background-color: $white;
+        padding: 30px 40px;
+        text-align: center;
+        margin: 70px 0 70px 0;
+        span{
+            font-size: 3.625rem;
+            font-weight: bold;
+            color: #DCDCDC;
+        }
+        h5{
+            font-size: 1.75rem;
+            margin-top: 15px;
+            font-weight: bold;
+            color: $black;
+        }
+    }
+}
+
+@media (min-width: 1600px){
+    .container {
+        max-width: 1370px;
+    }
+}
