@@ -1,0 +1,62 @@
+title: Status
+subtitle: "A new kind of tool for a new kind of internet"
+description: "Status is the mobile windown onto Ethereum, the platform with which we will onboard the first million users of a truly distributed web."
+author: Status
+timezone: UTC
+
+language:
+  - en
+  - ko
+  - zh
+  - ru
+  - fr
+locale: en
+i18n:
+  type: [page, post]
+permalink_defaults:
+  lang: en
+i18n_dir: :lang
+
+url: https://status.im/
+root: /
+permalink: news/:year/:month/:day/:title/
+archive_dir: news
+code_dir: downloads/code
+new_post_name: :year-:month-:day-:title.md # File name of new posts
+post_asset_folder: true
+per_page: 0
+
+highlight:
+  enable: false
+
+theme: navy
+deploy:
+  type: git
+  repo: git@github.com:status-im/status.im.git
+  branch: gh-pages
+
+disqus_shortname: hexojs
+twitter: ethstatus
+github: status-im
+
+graphviz:
+  enable: true
+
+mermaid:
+  enable: true
+  version: "7.1.2"
+  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
+
+elasticsearch:
+  index: 'status.im'
+  esHost: 'search.status.im'
+  esPort: 443
+
+math:
+  engine: 'mathjax' # or 'katex'
+  mathjax:
+   # src: custom_mathjax_source
+   # config: MathJax config
+  katex:
+   # css: custom_css_source
+   # config: KaTeX config
