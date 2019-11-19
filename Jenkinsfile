@@ -11,73 +11,55 @@ pipeline {
   }
 
   environment {
-    GIT_USER = 'status-im-auto'
-    GIT_MAIL = 'auto@status.im'
+    SCP_OPTS = 'StrictHostKeyChecking=no'
+    DEV_HOST = 'jenkins@node-01.do-ams3.proxy.misc.statusim.net'
+    DEV_SITE = 'dev.thestatus.network'
+    GH_USER = 'status-im-auto'
+    GH_MAIL = 'auto@status.im'
   }
 
   stages {
     stage('Git Prep') {
       steps {
-        sh "git config user.name ${GIT_USER}"
-        sh "git config user.email ${GIT_MAIL}"
-        /* necessary to have access to the theme partials */
-        sshagent(credentials: ['status-im-auto-ssh']) {
-          sh 'git submodule update --init --recursive'
-        }
+        sh "git config user.name ${env.GH_USER}"
+        sh "git config user.email ${env.GH_MAIL}"
       }
     }
 
     stage('Install Deps') {
       steps {
-        sh 'yarn install'
-      }
-    }
-
-    stage('Index') {
-      steps {
-        withCredentials([usernamePassword(
-          credentialsId: 'search.status.im-auth',
-          usernameVariable: 'HEXO_ES_USER',
-          passwordVariable: 'HEXO_ES_PASS'
-        )]) {
-          sh 'yarn run index'
-        }
+        sh 'yarn install --ignore-optional'
       }
     }
 
     stage('Build') {
       steps {
-        sh 'yarn run clean'
         sh 'yarn run build'
       }
     }
 
-    stage('Robot') {
-      when { expression { !GIT_BRANCH.endsWith('master') } }
-      steps { script {
-        sh 'echo "Disallow: /" >> public/robots.txt'
-      } }
-    }
-
     stage('Publish Prod') {
-      when { expression { GIT_BRANCH.endsWith('master') } }
-      steps { script {
-        sshagent(credentials: ['status-im-auto-ssh']) {
-          sh 'npm run deploy'
+      when { expression { env.GIT_BRANCH ==~ /.*master/ } }
+      steps {
+        withCredentials([string(
+          credentialsId: 'jenkins-github-token',
+          variable: 'GH_TOKEN',
+        )]) {
+          sh 'yarn run deploy'
         }
-      } }
+      }
     }
 
     stage('Publish Devel') {
-      when { expression { !GIT_BRANCH.endsWith('master') } }
-      steps { script {
+      when { expression { env.GIT_BRANCH ==~ /.*develop/ } }
+      steps {
         sshagent(credentials: ['jenkins-ssh']) {
-          sh '''
-            rsync -e 'ssh -o StrictHostKeyChecking=no' -r --delete public/. \
-            jenkins@node-01.do-ams3.proxy.misc.statusim.net:/var/www/dev/
-          '''
+          sh """
+            rsync -e 'ssh -o ${SCP_OPTS}' -r --delete public/. \
+            ${env.DEV_HOST}:/var/www/${env.DEV_SITE}/
+          """
         }
-      } }
+      }
     }
   }
 }
