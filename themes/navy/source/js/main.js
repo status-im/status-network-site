@@ -21,6 +21,16 @@ $(document).ready(function () {
         });
     });
 
+    $('.about-intro .inline-links a').each(function (index, element) {
+        $(this).on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).attr('href');
+            $('html, body').animate({
+                scrollTop: $(id).offset().top
+            }, 300);
+        });
+    });
+
     $(window).on('scroll', function(event) {
 
         $('.in-view').each(function (index, element) {
@@ -30,6 +40,10 @@ $(document).ready(function () {
             }
         });
 
+    });
+
+    var rellax = new Rellax('.floating-logo', {
+        speed: -3,
     });
 
     // Check if element is into view when scrolling

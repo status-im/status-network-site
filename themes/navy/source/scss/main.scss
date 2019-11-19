@@ -91,22 +91,22 @@ h1{
 }
 
 h2{
-    font-size: 3.625rem;
+    font-size: 3rem;
+    line-height: 3rem;
     font-weight: bold;
-    line-height: 3.625rem;
     letter-spacing: -1.85897px;
 }
 
 h3{
-    font-size: 3rem;
+    font-size: 2.625rem;
+    line-height: 2.625rem;
     font-weight: bold;
-    line-height: 3rem;
     letter-spacing: -1.21795px;
 }
 
 h4{
-    font-size: 2.375rem;
-    line-height: 2.375rem;
+    font-size: 2rem;
+    line-height: 2rem;
     font-weight: bold;
     letter-spacing: -1.21795px;
 }
@@ -118,7 +118,7 @@ ul{
 }
 
 .link-arrow{
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 600;
     color: $purple;
     letter-spacing: -0.2px;
@@ -145,16 +145,16 @@ ul{
 }
 
 .teaser-1{
-    font-size: 2.375rem;
+    font-size: 1.625rem;
+    line-height: 2.25rem;
     font-weight: 400;
-    line-height: 3rem;
     color: $light-grey;
 }
 
 .teaser-2{
-    font-size: 1.75rem;
+    font-size: 1.375rem;
+    line-height: 2rem;
     font-weight: 400;
-    line-height: 2.375rem;
     color: $light-grey;
     letter-spacing: -0.965517px;
 }
@@ -165,12 +165,16 @@ ul{
     align-items: baseline;
 }
 
-.m-t-30{
+.mt-30{
     margin-top: 30px;
 }
 
-.m-b-30{
+.mb-30{
     margin-bottom: 30px;
+}
+
+.mt-50{
+    margin-top: 50px;
 }
 
 .mb-50{
@@ -228,24 +232,29 @@ header{
 
 .header-overlay{
     background: $darker-grey;
-    padding: 30px 45px;
+    padding: 30px 45px !important;
     overflow: auto;
     transition: all .3s ease-in-out;
     .modal-dialog{
         max-width: 100%;
         margin: 0;
+        height: 100%;
+        display: flex;
         .modal-content{
             background: transparent;
             border: none;
+            display: flex;
+            .container{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
         }
     }
     .nav-section{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        a[data-dismiss="modal"]{
-            margin-right: 30px;
-        }
     }
     nav{
         ul{
@@ -257,10 +266,13 @@ header{
                 }
                 a{
                     color: #B6B6B6;
-                    font-size: 4.875rem;
-                    line-height: 7.5rem;
+                    font-size: 3.875rem;
+                    line-height: 5.5rem;
                     font-weight: bold;
                     letter-spacing: -2.5px;
+                    &:hover{
+                        color: rgba(255, 255, 255, 0.75);
+                    }
                 }
             }
         }
@@ -273,13 +285,13 @@ header{
         margin-left: 20px;
         a{
             color: $white;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 5px;
             display: inline-block;
         }
         p{
-            font-size: 1.125rem;
+            font-size: 1rem;
             color: $lighter-grey;
             line-height: 1.375rem;
         }
@@ -306,9 +318,9 @@ header{
     padding-bottom: 80px;
     position: relative;
     h1{
-        font-size: 4.875rem;
+        font-size: 3.875rem;
+        line-height: 3.875rem;
         font-weight: bold;
-        line-height: 4.875rem;
         color: $black;
     }
     .floating-logo{
@@ -331,7 +343,7 @@ header{
         li{
             margin: 0 15px;
             a{  
-                font-size: 1.25rem;
+                font-size: 1rem;
                 font-weight: 600;
                 color: $white;
                 display: flex;
@@ -364,6 +376,7 @@ header{
             margin-bottom: 80px;
             display: flex;
             align-items: center;
+            font-size: 1.625rem;
             svg{
                 margin-right: 20px;
             }
@@ -376,7 +389,7 @@ header{
                 &:hover{
                     .inner{
                         span{
-                            max-height: 60px;
+                            max-height: 120px;
                             margin-bottom: 20px;
                         }
                     }
@@ -416,7 +429,7 @@ header{
             color: $white;
         }
         a{
-            font-size: 2.25rem;
+            font-size: 1.625rem;
             color: #6C87FF;
         }
     }
@@ -438,7 +451,7 @@ header{
     }
     .inline{
         .link-arrow{
-            font-size: 1.875rem;
+            font-size: 1.375rem;
         }
     }
 }
@@ -489,7 +502,7 @@ footer{
             display: inline-block;
         }
         p{
-            font-size: 1.125rem;
+            font-size: 1rem;
             line-height: 1.375rem;
         }
     }
@@ -540,7 +553,6 @@ footer{
 
 .what-we-build{
     background-color: $slight-grey;
-    padding: 250px 0 220px 0;
     .inner{
         h2{
             color: $black;
@@ -568,31 +580,29 @@ footer{
     }
 }
 
-.why-we-build{
-    padding: 200px 0;
-    h2{
-        color: $black;
-    }
-}
-
 .sovereign-society{
-    padding: 200px 0;
     background-color: $slight-grey;
     .inner{
         background-color: $white;
         padding: 30px 40px;
         text-align: center;
-        margin: 70px 0 70px 0;
+        height: 100%;
         span{
-            font-size: 3.625rem;
+            font-size: 3rem;
             font-weight: bold;
             color: #DCDCDC;
         }
         h5{
-            font-size: 1.75rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
             margin-top: 15px;
-            font-weight: bold;
             color: $black;
+            b{
+                font-weight: bold;
+                display: block;
+                font-size: 1.375rem;
+                line-height: 2rem;
+            }
         }
     }
 }
@@ -692,27 +702,30 @@ a.active{
 }
 
 @media (max-width: 1599px){
-    h2 {
-        font-size: 3rem;
-        line-height: 3rem;
+    html{
+        font-size: 14px;
     }
-    h3{
+    h2 {
         font-size: 2.625rem;
         line-height: 2.625rem;
     }
-    h4{
+    h3{
         font-size: 2rem;
         line-height: 2rem;
     }
+    h4{
+        font-size: 1.625rem;
+        line-height: 1.625rem;
+    }
     .teaser-2{
-        font-size: 1.375rem;
-        line-height: 2rem;
+        font-size: 1.125rem;
+        line-height: 1.5rem;
     }
     .intro{
         padding-bottom: 60px;
         h1{
-            font-size: 3.875rem;
-            line-height: 3.875rem;
+            font-size: 3.5rem;
+            line-height: 3.5rem;
         }
         .floating-logo{
             svg{
@@ -721,8 +734,8 @@ a.active{
         }
     }
     .teaser-1{
-        font-size: 1.625rem;
-        line-height: 2.25rem;
+        font-size: 1.25rem;
+        line-height: 1.625rem;
     }
     .pt-150 {
         padding-top: 100px;
@@ -753,8 +766,8 @@ a.active{
             ul{
                 li{
                     a{
-                        font-size: 3.875rem;
-                        line-height: 5.5rem;
+                        font-size: 2.875rem;
+                        line-height: 4.5rem;
                     }
                 }
             }
@@ -786,6 +799,23 @@ a.active{
     }
     .ecosystem{
         .products{
+            .inner-img{
+                height: 280px;
+                display: flex;
+                align-items: flex-end;
+                overflow: hidden;
+                a{
+                    .inner{
+                        .product-logo{
+                            transform: scale(0.7) translate3d(calc(-20% - 5px), 20px, 0);
+                        }
+                        span{
+                            font-size: 1rem;
+                            line-height: 1.25rem;
+                        }
+                    }
+                }
+            }
             .grey-subtitle{
                 margin-bottom: 60px;
                 svg{
@@ -797,7 +827,7 @@ a.active{
         .inner-end{
             margin-top: 150px;
             a{
-                font-size: 1.625rem;
+                font-size: 1.25rem;
             }
         }
     }
@@ -904,7 +934,7 @@ a.active{
         }
     }
     .header-overlay{
-        padding: 25px 5px;
+        padding: 25px 5px !important;
         .logo{
             img{
                 width: 184px;
@@ -975,6 +1005,19 @@ a.active{
             }
         }
     }
+    .ecosystem{
+        .products{
+            .inner-img{
+                a{
+                    .inner{
+                        .product-logo{
+                            transform: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 991px){
@@ -1035,7 +1078,7 @@ a.active{
         ul{
             justify-content: flex-start;
             li{
-                margin: 0 30px 0 0;
+                margin: 0 15px 0 0;
                 &:last-child{
                     margin-right: 0;
                 }
@@ -1043,7 +1086,7 @@ a.active{
                     font-size: 0.875rem;
                     letter-spacing: -0.14px;
                     font-weight: normal;
-                    padding: 0;
+                    padding: 6px 10px;
                     svg{
                         display: none;
                     }
