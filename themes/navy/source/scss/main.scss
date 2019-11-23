@@ -386,6 +386,7 @@ header{
                 display: block;
                 position: relative;
                 transition: none;
+                width: 100%;
                 &:hover{
                     .inner{
                         span{
@@ -393,6 +394,9 @@ header{
                             margin-bottom: 20px;
                         }
                     }
+                }
+                &.soon{
+                    cursor: default;
                 }
                 .bg{
                     img{
@@ -428,7 +432,7 @@ header{
         h3{
             color: $white;
         }
-        a{
+        .link-arrow{
             font-size: 1.625rem;
             color: #6C87FF;
         }
@@ -566,7 +570,7 @@ footer{
                 color: $black;
             }
             p{
-                font-size: 1.375rem;
+                font-size: 1rem;
                 color: $light-grey;
                 margin-bottom: 0;
             }
@@ -576,7 +580,7 @@ footer{
         }
     }
     .inner-img{
-        margin-top: 164px;
+        margin-top: 40px;
     }
 }
 
@@ -678,22 +682,26 @@ a.active{
 /*===== PRINCIPLES-PAGE =====*/
 
 
-.about-principles .roman-list h4 {
-    padding: 0 60px;
-    position: relative;
+.about-principles{
+    .roman-list{
+        h3{
+            margin-bottom: 10px;
+            padding: 0 60px;
+            position: relative;
+            &:before {
+                content: attr(data-roman) '.';
+                color: rgba(60, 64, 73, 0.3);
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-weight: bold;
+            }
+        }
+        .teaser-2{
+            padding: 0 0 0 60px;
+        }
+    }
 }
-
-.about-principles .roman-list h4:before {
-    content: attr(data-roman);
-    color: rgba(60, 64, 73, 0.3);
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-weight: 500;
-}
-
-
-
 
 @media (min-width: 1600px){
     .container {
@@ -719,7 +727,7 @@ a.active{
     }
     .teaser-2{
         font-size: 1.125rem;
-        line-height: 1.5rem;
+        line-height: 1.625rem;
     }
     .intro{
         padding-bottom: 60px;
@@ -826,7 +834,7 @@ a.active{
         }
         .inner-end{
             margin-top: 150px;
-            a{
+            .link-arrow{
                 font-size: 1.25rem;
             }
         }
@@ -927,7 +935,7 @@ a.active{
     header{
         padding: 25px 5px;
         .logo{
-            img{
+            svg{
                 width: 184px;
                 height: auto;
             }
@@ -936,7 +944,7 @@ a.active{
     .header-overlay{
         padding: 25px 5px !important;
         .logo{
-            img{
+            svg{
                 width: 184px;
                 height: auto;
             }
@@ -1000,7 +1008,7 @@ a.active{
         }
         .inner-end{
             margin-top: 100px;
-            a{
+            .link-arrow{
                 font-size: 1.25rem;
             }
         }
@@ -1032,6 +1040,11 @@ a.active{
     }
     header {
         padding: 25px 5px 0 5px;
+        .menu-trigger{
+            svg{
+                width: 26px;
+            }
+        }
     }
     .header-overlay {
         nav{
@@ -1101,15 +1114,15 @@ a.active{
                 margin-bottom: 30px;
             }
             .inner-img{
-                margin-bottom: 20px;
+                margin-bottom: 30px;
             }
         }
-        .m-t-30{
+        .mt-30{
             margin-top: 0;
         }
         .inner-end{
             margin-top: 50px;
-            a{
+            .link-arrow{
                 margin-right: auto;
                 font-size: 1rem;
                 svg{
@@ -1156,6 +1169,26 @@ a.active{
             height: auto;
         }
     }
+    .what-we-build{
+        ul{
+            li{
+                margin-bottom: 50px;
+            }
+        }
+        .inner-img{
+            margin-top: 70px;
+        }
+    }
+    .about-intro{
+        .inline-links{
+            margin-top: 50px;
+            li{
+                &:first-child{
+                    display: none;
+                }
+            }
+        }
+    }
     footer {
         padding: 50px 0;
         .inner{
@@ -1171,6 +1204,41 @@ a.active{
         }
         svg{
             width: 20px;
+        }
+    }
+}
+
+@media (max-width: 767px){
+    .what-we-build {
+        ul{
+            margin-top: 50px;
+        }
+        .inner-img{
+            margin-top: 50px;
+            img{
+                max-width: 100%;
+            }
+        }
+    }
+    .ecosystem{
+        .products{
+            .inner-img{
+                margin-bottom: 15px;
+            }
+        }
+    }
+    .about-principles{
+        .roman-list{
+            h3{
+                padding: 0;
+                &:before{
+                    position: relative;
+                    margin-right: 10px;
+                }
+            }
+            .teaser-2{
+                padding: 0;
+            }
         }
     }
 }

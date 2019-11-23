@@ -6,6 +6,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>Status Network <% if (page.title) { %>- <%= page.title %><% } %></title>
+    <% if (page.description) { %><meta name="description" content="<%= page.description %>" /><% } %>
+
+    <!-- Brand icon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#4360DF">
+    <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#4360DF">
+
+    <meta property="og:site_name" content="Status Network" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Status Network <% if (page.title) { %>- <%= page.title %><% } %>" />
+    <% if (page.description) { %><meta property="og:description" content="<%= page.description %>" /><% } %>
+    <meta property="og:url" content="<%= page.permalink %>" />
+    <meta property="og:image" content="<%= config.url %>/img/share.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/ethstatus" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Status Network <% if (page.title) { %>- <%= page.title %><% } %>" />
+    <% if (page.description) { %><meta property="twitter:description" content="<%= page.description %>" /><% } %>
+    <meta name="twitter:url" content="<%= page.permalink %>" />
+    <meta property="twitter:image" content="<%= config.url %>/img/share.png" />
+    <meta name="twitter:site" content="@ethstatus" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+
     <!-- Styles'n'Scripts -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600|IBM+Plex+Sans:400,500,700" rel="stylesheet">

@@ -21,13 +21,19 @@ $(document).ready(function () {
         });
     });
 
-    $('.about-intro .inline-links a').each(function (index, element) {
+    $('.about-intro .inline-links a[href^="#"]').each(function (index, element) {
         $(this).on('click', function (event) {
             event.preventDefault();
             var id = $(this).attr('href');
             $('html, body').animate({
                 scrollTop: $(id).offset().top
             }, 300);
+        });
+    });
+
+    $('.products .inner-img .soon').each(function (index, element) {
+        $(this).on('click', function (event) {
+            event.preventDefault();
         });
     });
 
