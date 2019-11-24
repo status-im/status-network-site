@@ -703,6 +703,108 @@ a.active{
     }
 }
 
+.feed{
+    .list-posts{
+        padding-bottom: 80px;
+        min-height: calc(100vh - 162px);
+        li{
+            padding: 30px 0;
+            border-bottom: 1px solid rgba($lighter-grey, .3);
+            &.no-results{
+                border: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 30px 0 0 0;
+                height: calc(100vh - 162px);
+            }
+            .post{
+                padding: 0;
+                margin: 0;
+                border: none;
+                .meta{
+                    display: flex;
+                    align-items: center;
+                    font-size: 1rem;
+                    time{
+                        color: $light-grey;
+                        margin-right: 10px;
+                    }
+                    .blog{
+                        display: flex;
+                        align-items: center;
+                        font-size: 0;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                    .blog-status-network{
+                        width: 120px;
+                        height: 24px;
+                        background-image: url('../img/logo-status-network.svg');
+                    }
+                    .blog-our-status{
+                        width: 62px;
+                        height: 24px;
+                        background-image: url('../img/logo-our-status.svg');
+                    }
+                    .blog-nimbus{
+                        width: 64px;
+                        height: 10px;
+                        background-image: url('../img/logo-nimbus.svg');
+                    }
+                    .blog-embark{
+                        width: 68px;
+                        height: 24px;
+                        background-image: url('../img/logo-embark.svg');
+                    }
+                    .blog-keycard{
+                        width: 57px;
+                        height: 24px;
+                        background-image: url('../img/logo-keycard.svg');
+                    }
+                    .blog-vac{
+                        width: 44px;
+                        height: 16px;
+                        background-image: url('../img/logo-vac.svg');
+                    }
+                }
+                .author{
+                    color: $light-grey;
+                    font-size: 1rem;
+                }
+                h4{
+                    margin: 15px 0;
+                }
+                a{
+                    color: $black;
+                    &:hover{
+                        color: $purple;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.template-index{
+    .feed{
+        .list-posts{
+            display: flex;
+            margin: 0 -15px;
+            min-height: 0;
+            padding: 0;
+            li{
+                width: calc(33.33% - 30px);
+                margin: 0 15px;
+                &:nth-child(n+4){
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
 @media (min-width: 1600px){
     .container {
         max-width: 1370px;
@@ -1062,7 +1164,7 @@ a.active{
             a{
                 letter-spacing: -0.2px;
                 font-size: 1.25rem;
-                margin-bottom: 10px;
+                margin: 5px 0;
             }
             p{
                 display: none;
@@ -1070,6 +1172,7 @@ a.active{
         }
         svg{
             width: 20px;
+            margin: 5px 0;
         }
     }
     .intro{
@@ -1152,21 +1255,21 @@ a.active{
             width: 13px;
         }
     }
-    .news{
-        padding: 70px 0;
-        .inline{
-            flex-wrap: wrap;
-            h2{
-                width: 100%;
-                margin-bottom: 20px;
-            }
-            .link-arrow{
-                font-size: 1rem;
+    .template-index{
+        .feed{
+            .list-posts{
+                flex-wrap: wrap;
+                margin: 0;
+                li{
+                    width: 100%;
+                    margin: 0;
+                }
             }
         }
-        .post{
-            margin-top: 50px;
-            height: auto;
+    }
+    .news{
+        h2{
+            margin-bottom: 30px;
         }
     }
     .what-we-build{

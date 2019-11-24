@@ -1,0 +1,10 @@
+<article class="post">
+    <div class="meta">
+        <time datetime="{{date}}">{{date}}</time>
+        <div class="blog blog-{{blog}}">{{blog}}</div>
+    </div>
+    <h4><a href="{{url}}" target="_blank">{{title}}</a></h4>
+    {{#if authors}}
+    <div class="author">by {{authors}}</div>
+    {{/if}}
+</article>
