@@ -13,7 +13,7 @@ permalink_defaults:
   lang: en
 i18n_dir: :lang
 
-url: https://dev.status.im/
+url: https://dev.thestatus.network/
 root: /
 code_dir: downloads/code
 new_post_name: :year-:month-:day-:title.md # File name of new posts
@@ -26,7 +26,7 @@ highlight:
 theme: navy
 deploy:
   type: git
-  repo: git@github.com:status-im/status.im.git
+  repo: git@github.com:status-im/status-network-site.git
   branch: gh-pages
 
 disqus_shortname: hexojs
