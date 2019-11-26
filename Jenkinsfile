@@ -13,7 +13,7 @@ pipeline {
   environment {
     SCP_OPTS = 'StrictHostKeyChecking=no'
     DEV_HOST = 'jenkins@node-01.do-ams3.proxy.misc.statusim.net'
-    DEV_SITE = 'dev.thestatus.network'
+    DEV_SITE = 'dev.statusnetwork.com'
     GH_USER = 'status-im-auto'
     GH_MAIL = 'auto@status.im'
   }

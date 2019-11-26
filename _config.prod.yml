@@ -17,7 +17,7 @@ permalink_defaults:
   lang: en
 i18n_dir: :lang
 
-url: https://thestatus.network/
+url: https://statusnetwork.com/
 root: /
 code_dir: downloads/code
 new_post_name: :year-:month-:day-:title.md # File name of new posts
