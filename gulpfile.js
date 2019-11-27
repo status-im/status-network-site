@@ -46,7 +46,8 @@ gulp.task('compress', ['sass'], () => {
         'node_modules/rellax/rellax.min.js',
         'node_modules/store/dist/store.everything.min.js',
         'node_modules/handlebars/dist/handlebars.min.js',
-        'themes/navy/source/js/main.js'
+        'themes/navy/source/js/fathom.js',
+        'themes/navy/source/js/main.js',
     ])
         .pipe(concat('main.js'))
         .pipe(minify({ext:{min:'.min.js'}}))

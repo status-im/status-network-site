@@ -40,6 +40,12 @@ var allBlogs = [
 ];
 
 $(document).ready(function () {
+    // call Fathom Analytics to increment pageviews
+    if (document.location.hostname == 'statusnetwork.com') {
+        fathom('set', 'trackerUrl', '//fathom.status.im/collect');
+        fathom('set', 'siteId', 'FEDMW');
+        fathom('trackPageview');
+    }
 
     // Get handlebars template
     var template;
