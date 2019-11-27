@@ -25,7 +25,7 @@ var allBlogs = [
         type: 'ghost'
     },
     {
-        url: 'https://news.thestatus.network',
+        url: 'https://news.statusnetwork.com',
         key: '66d8d4f364b9f46c90c9d45bf4',
         version: 'v2',
         limit: 3,
