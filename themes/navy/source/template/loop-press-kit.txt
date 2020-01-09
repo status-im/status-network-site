@@ -1,0 +1,15 @@
+<article class="post">
+	{{#if feature_image}}
+		<a href="{{url}}" class="img-holder" target="_blank">
+			<img src="{{feature_image}}">
+		</a>
+	{{/if}}
+    <div class="meta">
+	    {{#if authors}}
+	    <div class="author">by {{authors}}</div>
+	    {{/if}}
+        <time datetime="{{date}}">{{date}}</time>
+    </div>
+    <h4><a href="{{url}}" target="_blank">{{title}}</a></h4>
+    <p>{{description}}</p>
+</article>

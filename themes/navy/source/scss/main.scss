@@ -87,34 +87,67 @@ a{
 }
 
 h1{
-    letter-spacing: -2.5px;
+    letter-spacing: -0.125rem;
 }
 
 h2{
     font-size: 3rem;
     line-height: 3rem;
     font-weight: bold;
-    letter-spacing: -1.85897px;
+    letter-spacing: -0.0625rem;
 }
 
 h3{
     font-size: 2.625rem;
     line-height: 2.625rem;
     font-weight: bold;
-    letter-spacing: -1.21795px;
+    letter-spacing: -0.0625rem;
 }
 
 h4{
     font-size: 2rem;
     line-height: 2rem;
     font-weight: bold;
-    letter-spacing: -1.21795px;
+    letter-spacing: -0.0625rem;
 }
 
 ul{
     list-style-type: none;
     padding: 0;
     margin-bottom: 0;
+}
+
+.btn {
+    color: $black;
+    border: 1px solid $black;
+    border-radius: 0;
+    line-height: 1.25rem;
+    font-size: 1rem;
+    letter-spacing: -0.375px;
+    padding: 11px 16px;
+    font-weight: 600;
+    border-radius: 2px;
+    position: relative;
+    background: transparent;
+    align-items: center;
+    &:hover{
+        color: $white;
+        background: $black;
+        outline: 0;
+        box-shadow: none;
+    }
+}
+
+.btn-border-white{
+    color: $white;
+    border: 1px solid $white;
+    &:hover{
+        color: $white;
+        background: $purple;
+        outline: 0;
+        box-shadow: none;
+        border: 1px solid $purple;
+    }
 }
 
 .link-arrow{
@@ -124,7 +157,10 @@ ul{
     letter-spacing: -0.2px;
     display: inline-flex;
     align-items: center;
-    svg{
+    &.black{
+        color: $black;
+    }
+    svg, img{
         margin-right: 15px;
     }
 }
@@ -156,7 +192,7 @@ ul{
     line-height: 2rem;
     font-weight: 400;
     color: $light-grey;
-    letter-spacing: -0.965517px;
+    letter-spacing: -0.0425rem;
 }
 
 .inline{
@@ -317,6 +353,7 @@ header{
 .intro{
     padding-bottom: 80px;
     position: relative;
+    overflow: hidden;
     h1{
         font-size: 3.875rem;
         line-height: 3.875rem;
@@ -328,6 +365,13 @@ header{
         left: 60%;
         bottom: -150px;
         z-index: -1;
+    }
+    .status-h1{
+        display: flex;
+        align-items: center;
+        svg{
+            margin-right: 20px;
+        }
     }
 }
 
@@ -351,9 +395,9 @@ header{
                 border-radius: 10px;
                 padding: 8px 16px;
                 &.active{
-                    background: rgba(255, 255, 255, 0.1);
+                    background: rgba($white, 0.1);
                 }
-                svg{
+                svg, img{
                     margin-right: 15px;
                 }
             }
@@ -397,6 +441,30 @@ header{
                 }
                 &.soon{
                     cursor: default;
+                    &:before{
+                        content: 'Coming soon';
+                        position: absolute;
+                        top: 40px;
+                        left: 40px;
+                        width: 140px;
+                        height: 30px;
+                        z-index: 1;
+                        background: rgba($white,.9);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 3px;
+                        color: $darker-grey;
+                        font-weight: bolder;
+                        font-size: 0.875rem;
+                        opacity: 0;
+                        transition: all .3s ease-in-out;
+                    }
+                    &:hover{
+                        &:before{
+                            opacity: 1;
+                        }
+                    }
                 }
                 .bg{
                     img{
@@ -587,26 +655,10 @@ footer{
 .sovereign-society{
     background-color: $slight-grey;
     .inner{
-        background-color: $white;
-        padding: 30px 40px;
-        text-align: center;
-        height: 100%;
-        span{
-            font-size: 3rem;
-            font-weight: bold;
-            color: #DCDCDC;
-        }
-        h5{
+        p{
             font-size: 1rem;
-            line-height: 1.5rem;
-            margin-top: 15px;
-            color: $black;
-            b{
-                font-weight: bold;
-                display: block;
-                font-size: 1.375rem;
-                line-height: 2rem;
-            }
+            color: $light-grey;
+            margin-bottom: 0;
         }
     }
 }
@@ -805,6 +857,102 @@ a.active{
     }
 }
 
+/*===== STATUS-BRAND-ASSETS-SUBPAGE =====*/
+
+.status-brand-assets{
+    .assets{
+        .grey-subtitle{
+            color: $lighter-grey;
+            margin-bottom: 60px;
+            display: flex;
+            align-items: center;
+            font-size: 1.625rem;
+            .icon-holder{
+                margin-right: 20px;
+                width: 32px;
+            }
+        }
+        .inner{
+            background-color: #F0F0F0;
+            width: 100%;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-bottom: 20px;
+            &.inner-assets{
+                align-items: flex-start;
+                img{
+                    max-width: 258px;
+                    margin-top: 50px;
+                }
+            }
+        }
+    }
+}
+
+/*===== STATUS-PRESS-RELEASES =====*/
+
+.press-releases{
+    .inner-start{
+        h2{
+            color: $white;
+        }
+    }
+    .feed{
+        .list-posts{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -30px;
+            li{
+                width: calc(50% - 60px);
+                margin: 0 30px;
+                .post{
+                    border-bottom: none;
+                    .img-holder{
+                        height: 300px;
+                        overflow: hidden;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                    .meta{
+                        display: flex;
+                        margin-top: 30px;
+                        .author{
+                            color: $purple;
+                            margin-right: 20px;
+                        }
+                    }
+                    h4{
+                        a{
+                            color: $white;
+                        }
+                    }
+                    p{
+                        color: $light-grey;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*===== CONTACT =====*/
+
+.contact{
+    h2{
+        color: $white;
+        margin-bottom: 40px;
+    }
+}
+
 @media (min-width: 1600px){
     .container {
         max-width: 1370px;
@@ -812,9 +960,6 @@ a.active{
 }
 
 @media (max-width: 1599px){
-    html{
-        font-size: 14px;
-    }
     h2 {
         font-size: 2.625rem;
         line-height: 2.625rem;
@@ -838,7 +983,7 @@ a.active{
             line-height: 3.5rem;
         }
         .floating-logo{
-            svg{
+            img{
                 max-width: 520px;
             }
         }
@@ -979,6 +1124,19 @@ a.active{
             }
         }
     }
+    .press-releases{
+        .feed{
+            .list-posts{
+                li{
+                    .post{
+                        .img-holder{
+                            height: 290px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -1037,7 +1195,7 @@ a.active{
     header{
         padding: 25px 5px;
         .logo{
-            svg{
+            svg, img{
                 width: 184px;
                 height: auto;
             }
@@ -1046,7 +1204,7 @@ a.active{
     .header-overlay{
         padding: 25px 5px !important;
         .logo{
-            svg{
+            svg, img{
                 width: 184px;
                 height: auto;
             }
@@ -1064,7 +1222,7 @@ a.active{
     }
     .intro{
         .floating-logo{
-            svg{
+            img{
                 max-width: 420px;
             }
         }
@@ -1079,6 +1237,16 @@ a.active{
                                 max-height: 200px;
                                 margin-bottom: 10px;
                             }
+                        }
+                    }
+                    &.soon{
+                        &:before{
+                            opacity: 1;
+                            left: 26px;
+                            top: 55px;
+                            font-size: 0.75rem;
+                            width: 105px;
+                            height: 26px;
                         }
                     }
                     .inner{
@@ -1128,9 +1296,25 @@ a.active{
             }
         }
     }
+    .press-releases{
+        .feed{
+            .list-posts{
+                li{
+                    .post{
+                        .img-holder{
+                            height: 240px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 991px){
+    html{
+        font-size: 14px;
+    }
     h2{
         font-size: 1.75rem;
         line-height: 1.75rem;
@@ -1203,7 +1387,7 @@ a.active{
                     letter-spacing: -0.14px;
                     font-weight: normal;
                     padding: 6px 10px;
-                    svg{
+                    svg, img{
                         display: none;
                     }
                 }
@@ -1228,7 +1412,7 @@ a.active{
             .link-arrow{
                 margin-right: auto;
                 font-size: 1rem;
-                svg{
+                svg, img{
                     width: 13px;
                 }
             }
@@ -1251,7 +1435,7 @@ a.active{
     }
     .link-arrow{
         font-size: 1rem;
-        svg{
+        svg, img{
             width: 13px;
         }
     }
@@ -1309,6 +1493,20 @@ a.active{
             width: 20px;
         }
     }
+    .press-releases{
+        .feed{
+            .list-posts{
+                li{
+                    width: 100%;
+                    .post{
+                        .img-holder{
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @media (max-width: 767px){
@@ -1341,6 +1539,13 @@ a.active{
             }
             .teaser-2{
                 padding: 0;
+            }
+        }
+    }
+    .press-releases{
+        .feed{
+            .list-posts{
+                margin-top: -50px;
             }
         }
     }

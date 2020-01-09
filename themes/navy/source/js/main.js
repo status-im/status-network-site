@@ -14,7 +14,8 @@ var allBlogs = [
         version: 'v2',
         limit: 3,
         blog: 'our-status',
-        type: 'ghost'
+        type: 'ghost',
+        page: 1
     },
     {
         url: 'https://news.nimbus.team',
@@ -30,7 +31,8 @@ var allBlogs = [
         version: 'v2',
         limit: 3,
         blog: 'status-network',
-        type: 'ghost'
+        type: 'ghost',
+        page: 1
     },
     {
         url: 'https://embark.status.im/atom.xml',
@@ -39,7 +41,30 @@ var allBlogs = [
     }
 ];
 
+// Get handlebars template
+var template;
+function getTemplate(){
+    $.ajax({
+        url: window.location.origin + '/template/loop.txt',
+        type: 'GET',
+    }).done(function(response) {
+        template = response;
+    });  
+}
+
+// Get handlebars template for Press Kit posts
+var templatePressKit;
+function getTemplatePressKit(){
+    $.ajax({
+        url: window.location.origin + '/template/loop-press-kit.txt',
+        type: 'GET',
+    }).done(function(response) {
+        templatePressKit = response;
+    });  
+}
+
 $(document).ready(function () {
+
     // call Fathom Analytics to increment pageviews
     if (document.location.hostname == 'statusnetwork.com') {
         fathom('set', 'trackerUrl', '//fathom.status.im/collect');
@@ -47,61 +72,52 @@ $(document).ready(function () {
         fathom('trackPageview');
     }
 
-    // Get handlebars template
-    var template;
-    function getTemplate(){
-        $.ajax({
-            url: window.location.origin + '/template/loop.txt',
-            type: 'GET',
-        }).done(function(response) {
-            template = response;
-        });  
-    }
+    if($('.template-index').length){
+        var storedPosts = store.get('sn_posts'),
+            storedTemplate = store.get('sn_template');
 
-    var storedPosts = store.get('sn_posts'),
-        storedTemplate = store.get('sn_template');
+        if(typeof storedPosts != 'undefined' && typeof storedTemplate != 'undefined'){
 
-    if(typeof storedPosts != 'undefined' && typeof storedTemplate != 'undefined'){
-
-        // Load posts and template from localstorage
-        for (const v of storedPosts) {
-            renderPost(v, storedTemplate);
-        }
-
-    }else{
-
-        var deferred,
-            deferreds = [];
-        
-        // Fetch all posts
-        deferred = getTemplate();
-        deferreds.push(deferred);
-    
-        for (const v of allBlogs) {
-            if(v.type == 'xml'){
-                deferred = loadXMLPosts(v);
-            }else if(v.type == 'ghost'){
-                deferred = loadGhostPosts(v);
+            // Load posts and template from localstorage
+            for (const v of storedPosts) {
+                renderPost(v, storedTemplate);
             }
-            deferreds.push(deferred);
-        }
 
-        $.when.apply($, deferreds).done(function(t){
+        }else{
 
-            allPosts.sort(function(a,b){
-                return new Date(b.defaultDate) - new Date(a.defaultDate)
-            });
+            var deferred,
+                deferreds = [];
             
-            // store all posts and template for 6h
-            store.set('sn_posts', allPosts, new Date().getTime() + 1000*60*60*6);
-            store.set('sn_template', template, new Date().getTime() + 1000*60*60*6);
-
-            for (const v of allPosts) {
-                renderPost(v, template);
+            // Fetch all posts
+            deferred = getTemplate();
+            deferreds.push(deferred);
+        
+            for (const v of allBlogs) {
+                if(v.type == 'xml'){
+                    deferred = loadXMLPosts(v);
+                }else if(v.type == 'ghost'){
+                    deferred = loadGhostPosts(v);
+                }
+                deferreds.push(deferred);
             }
 
-        });
+            $.when.apply($, deferreds).done(function(t){
 
+                allPosts.sort(function(a,b){
+                    return new Date(b.defaultDate) - new Date(a.defaultDate)
+                });
+                
+                // store all posts and template for 6h
+                store.set('sn_posts', allPosts, new Date().getTime() + 1000*60*60*6);
+                store.set('sn_template', template, new Date().getTime() + 1000*60*60*6);
+
+                for (const v of allPosts) {
+                    renderPost(v, template);
+                }
+
+            });
+
+        }
     }
 
     // Enable tilt effect for home products
@@ -113,20 +129,22 @@ $(document).ready(function () {
     });
 
     // Make products navigation sticky
-    $(".products-container .quick-nav").stick_in_parent();
+    $(".quick-nav").stick_in_parent();
 
     // Smooth scroll to specific section after click on quick nav link
-    $('.quick-nav a').each(function (index, element) {
-        $(this).on('click', function (event) {
-            event.preventDefault();
-            var id = $(this).attr('href');
-            $('html, body').animate({
-                scrollTop: $(id).offset().top
-            }, 300);
-            $('.quick-nav a').removeClass('active');
-            $(this).addClass('active');
+    if($('.template-index').length){
+        $('.quick-nav a').each(function (index, element) {
+            $(this).on('click', function (event) {
+                event.preventDefault();
+                var id = $(this).attr('href');
+                $('html, body').animate({
+                    scrollTop: $(id).offset().top
+                }, 300);
+                $('.quick-nav a').removeClass('active');
+                $(this).addClass('active');
+            });
         });
-    });
+    }
 
     // Smooth scroll to specific section after click on about nav link
     $('.about-intro .inline-links a[href^="#"]').each(function (index, element) {
@@ -148,12 +166,14 @@ $(document).ready(function () {
 
     $(window).on('scroll', function(event) {
 
-        $('.in-view').each(function (index, element) {
-            if (isScrolledIntoView($(this))){
-                $('.quick-nav a').removeClass('active');
-                $('.quick-nav a[href="#'+ $(this).attr('data-target') +'"]').addClass('active');
-            }
-        });
+        if($('.template-index').length){
+            $('.in-view').each(function (index, element) {
+                if (isScrolledIntoView($(this))){
+                    $('.quick-nav a').removeClass('active');
+                    $('.quick-nav a[href="#'+ $(this).attr('data-target') +'"]').addClass('active');
+                }
+            });
+        }
 
     });
 
@@ -162,7 +182,60 @@ $(document).ready(function () {
         speed: -3,
     });
 
+    // Load posts for Status Press Kit - Press
+    var statusPressKitPage = 1;
+    var statusPressKit = {
+        limit: 4,
+        page: statusPressKitPage,
+        blog: 'our-status'
+    };
+    loadPostsForPressKit(statusPressKit);
+
+    $('.feed .load-more').on('click', function(event) {
+        event.preventDefault();
+
+        statusPressKitPage++;
+        statusPressKit.page = statusPressKitPage;
+        loadPostsForPressKit(statusPressKit);
+
+    });
+
 });
+
+function loadPostsForPressKit(arr){
+    var blog;
+
+    allPosts = [];
+
+    for (const v of allBlogs) {
+        if(v.blog == arr.blog){
+            blog = Object.assign(v, arr);
+        }
+    }
+
+    var deferred,
+        deferreds = [];
+    
+    // Fetch all posts
+    deferred = getTemplatePressKit();
+    deferreds.push(deferred);
+
+    if(blog.type == 'xml'){
+        deferred = loadXMLPosts(blog);
+    }else if(blog.type == 'ghost'){
+        deferred = loadGhostPosts(blog);
+    }
+    deferreds.push(deferred);
+
+    $.when.apply($, deferreds).done(function(t){
+
+        for (const v of allPosts) {
+            renderPost(v, templatePressKit);
+        }
+
+    });
+
+}
 
 // Function to load posts from Ghost blog
 function loadGhostPosts(arr){
@@ -176,8 +249,9 @@ function loadGhostPosts(arr){
     return ghostAPI.posts
         .browse({
             include: 'authors',
-            fields: ['title', 'url', 'published_at'],
-            limit: arr.limit
+            fields: ['title', 'url', 'published_at', 'feature_image'],
+            limit: arr.limit,
+            page: arr.page
         })
         .then(function(posts){
 
@@ -193,6 +267,7 @@ function loadGhostPosts(arr){
                 allPosts.push({
                     'title': v.title,
                     'url': v.url,
+                    'feature_image': v.feature_image,
                     'date': date,
                     'defaultDate': v.published_at,
                     'authors': authors,
