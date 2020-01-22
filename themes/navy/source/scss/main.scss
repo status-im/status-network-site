@@ -466,6 +466,33 @@ header{
                         }
                     }
                 }
+                &.experimental{
+                    cursor: default;
+                    &:before{
+                        content: 'Experimental';
+                        position: absolute;
+                        top: 40px;
+                        left: 40px;
+                        width: 140px;
+                        height: 30px;
+                        z-index: 1;
+                        background: rgba($white,.9);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 3px;
+                        color: $darker-grey;
+                        font-weight: bolder;
+                        font-size: 0.875rem;
+                        opacity: 0;
+                        transition: all .3s ease-in-out;
+                    }
+                    &:hover{
+                        &:before{
+                            opacity: 1;
+                        }
+                    }
+                }
                 .bg{
                     img{
                         width: 100%;
