@@ -35,7 +35,7 @@ var allBlogs = [
         page: 1
     },
     {
-        url: 'https://embark.status.im/atom.xml',
+        url: 'https://blog.embarklabs.io/atom.xml',
         blog: 'embark',
         type: 'xml'
     }
