@@ -76,14 +76,14 @@ $(document).ready(function () {
         var storedPosts = store.get('sn_posts'),
             storedTemplate = store.get('sn_template');
 
-        if(typeof storedPosts != 'undefined' && typeof storedTemplate != 'undefined'){
+        if(typeof storedPosts !== 'undefined' && typeof storedTemplate !== 'undefined'){
 
             // Load posts and template from localstorage
             for (const v of storedPosts) {
                 renderPost(v, storedTemplate);
             }
 
-        }else{
+        } else if (allPosts.length) {
 
             var deferred,
                 deferreds = [];

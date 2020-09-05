@@ -805,6 +805,9 @@ a.active{
                 padding: 0;
                 margin: 0;
                 border: none;
+                img {
+                    width: 100%;
+                }
                 .meta{
                     display: flex;
                     align-items: center;
