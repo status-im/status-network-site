@@ -1,40 +1,34 @@
 const gulp = require('gulp')
 const log = require('fancy-log')
+const webserver = require('gulp-webserver')
 const browserSync = require('browser-sync').create()
-const sass = require('gulp-sass')
-const Hexo = require('hexo');
-const runSequence = require('run-sequence');
-const minify = require('gulp-minify');
-const cleanCSS = require('gulp-clean-css');
-const concat = require('gulp-concat');
-const rename = require("gulp-rename");
+const gulpSass = require('gulp-sass')
+const Hexo = require('hexo')
+const gulpMinify = require('gulp-minify')
+const cleanCSS = require('gulp-clean-css')
+const concat = require('gulp-concat')
+const rename = require("gulp-rename")
 
-const gitBranch = require('./scripts/git-branch');
+const gitBranch = require('./scripts/git-branch')
 
 const getEnv = () => {
     return gitBranch() == 'master' ? 'prod' : 'dev'
 }
 
-const hexo = async (cmdName, args={}) => {
-    var h = new Hexo(process.cwd(), {
+// loads hexo configuration based on env we build for
+const hexo = async (cmd) => {
+    var hexo = new Hexo(process.cwd(), {
         config: `_config.${getEnv()}.yml`,
         watch: false,
     })
-    try {
-        await h.init()
-        await h.call(cmdName, args)
-        await h.exit()
-    } catch(err) {
-        h.exit(err)
-        throw err
-    }
+    await hexo.init()
+    await hexo.call(cmd)
+    return await hexo.exit()
 }
 
-gulp.task('generate', async (cb) => {
-    await hexo('generate') /* generate html with 'hexo generate' */
-})
+const content = () => hexo('generate')
 
-gulp.task('compress', ['sass'], () => {
+const minijs = () =>
     gulp.src([
         'node_modules/jquery/dist/jquery.min.js', 
         'node_modules/popper.js/dist/umd/popper.min.js',
@@ -50,36 +44,37 @@ gulp.task('compress', ['sass'], () => {
         'themes/navy/source/js/main.js',
     ])
         .pipe(concat('main.js'))
-        .pipe(minify({ext:{min:'.min.js'}}))
+        .pipe(gulpMinify({ext:{min:'.min.js'}}))
         .pipe(gulp.dest('./public/js/'))
 
+const css = () =>
     gulp.src('./public/css/main.css')
         .pipe(cleanCSS())
         .pipe(rename("main.min.css"))
-        .pipe(gulp.dest('./public/css/'));
-});
+        .pipe(gulp.dest('./public/css/'))
 
-gulp.task('sass', () => {
-    return gulp.src("./themes/navy/source/scss/main.scss")
-        .pipe(sass())
+const sass = () =>
+    gulp.src("./themes/navy/source/scss/main.scss")
+        .pipe(gulpSass())
         .on('error', log.error)
         .pipe(gulp.dest('./public/css'))
         .pipe(browserSync.stream())
-})
 
-gulp.task('watch', async () => {
-    gulp.watch([
-        './themes/navy/source/scss/*.scss',
-        './themes/navy/source/js/main.js'
-    ], ['compress'])
-});
+const devel = () => {
+    gulp.watch('./themes/navy/source/scss/*.scss', sass, css)
+    gulp.watch('./themes/navy/source/js/main.js', minijs)
+    gulp.watch(['./source/**/*.{md,yml}', './themes/navy/**/*'], content)
+}
 
-gulp.task('build', (cb) => {
-    runSequence('generate', 'compress', 'watch')
-});
+const server = () =>
+  gulp.src('./public').pipe(webserver({
+    port: 8080, livereload: true, open: true
+  }))
 
-gulp.task('run', (cb) => {
-    runSequence('generate', 'compress')
-});
-
-gulp.task('default', [])
+exports.content = content
+exports.sass = sass
+exports.css = gulp.series(sass, css)
+exports.server = server
+exports.devel = gulp.parallel(server, devel)
+exports.build = gulp.parallel(content, exports.css, minijs)
+exports.default = exports.build
